@@ -11,9 +11,9 @@ export const movieCardStyle = StyleSheet.create({
     borderRadius: 25,
     gap: 10,
     padding: 20,
+    alignItems: 'center',
   },
   title: {
-    textAlign: 'center',
     fontSize: 18,
     fontWeight: 'bold',
   },

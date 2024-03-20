@@ -12,7 +12,6 @@ export const asyncStorageStyles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'center',
-    alignContent: 'flex-start',
   },
   input: {
     height: 50,

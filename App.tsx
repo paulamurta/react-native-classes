@@ -6,6 +6,7 @@ import Instagram from './src/pages/Instagram';
 import AsyncStoragePage from './src/pages/AsyncStorage';
 import Movies from './src/pages/Movies';
 import Feed from './src/pages/Feed';
+import Animations from './src/pages/Animations';
 
 export default function App() {
   return (
@@ -14,7 +15,8 @@ export default function App() {
       {/* <Instagram /> */}
       {/* <Pizza /> */}
       {/* <AsyncStoragePage /> */}
-      <Movies />
+      {/* <Movies /> */}
+      <Animations />
     </SafeAreaView>
   );
 }

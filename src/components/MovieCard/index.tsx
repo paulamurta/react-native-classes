@@ -6,6 +6,7 @@ import {useState} from 'react';
 
 export default function MovieCard({nome, sinopse, foto}: MovieCardProps) {
   const [showText, setShowText] = useState<boolean>(false);
+
   return (
     <View style={movieCardStyle.card}>
       <Text style={movieCardStyle.title}>{nome}</Text>

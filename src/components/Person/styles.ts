@@ -15,6 +15,5 @@ export const personStyles = StyleSheet.create({
     gap: 10,
     width: '100%',
     justifyContent: 'flex-start',
-    alignContent: 'center',
   },
 });

@@ -7,7 +7,6 @@ export const feedStyles = StyleSheet.create({
   },
   header: {
     justifyContent: 'flex-start',
-    alignContent: 'flex-start',
     width: '100%',
     gap: 10,
   },
@@ -71,6 +70,5 @@ export const feedStyles = StyleSheet.create({
     gap: 10,
     width: '100%',
     justifyContent: 'flex-start',
-    alignContent: 'center',
   },
 });

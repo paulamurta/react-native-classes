@@ -7,13 +7,10 @@ export const pizzaStyles = StyleSheet.create({
     padding: 20,
     flexDirection: 'column',
     justifyContent: 'flex-start',
-    alignContent: 'center',
   },
   modalWrapper: {
     flex: 1,
-    flexDirection: 'column',
     justifyContent: 'center',
-    alignContent: 'center',
   },
   logo: {
     textAlign: 'center',
@@ -51,7 +48,6 @@ export const pizzaStyles = StyleSheet.create({
   statusRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignContent: 'center',
   },
   statusText: {
     fontSize: 20,

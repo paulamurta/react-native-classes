@@ -13,7 +13,6 @@ export const modalStyles = StyleSheet.create({
     padding: 40,
     gap: 20,
     justifyContent: 'center',
-    alignContent: 'center',
     elevation: 5,
   },
   modalTxt: {
