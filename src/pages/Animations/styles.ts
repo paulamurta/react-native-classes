@@ -1,19 +1,27 @@
-import {StyleSheet} from 'react-native';
+import {Animated, StyleSheet} from 'react-native';
 
-export const animationsStyles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  wrapper: {
-    width: 250,
-    height: 250,
-    backgroundColor: 'darkblue',
-  },
-  flatlistContent: {
-    gap: 30,
-    width: '100%',
-    padding: 20,
-  },
-});
+const animationsStyles = (
+  dynamicWidth: Animated.Value,
+  dynamicHeight: Animated.Value,
+) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: 'black',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    animatedView: {
+      width: dynamicWidth,
+      height: dynamicHeight,
+      backgroundColor: 'white',
+      justifyContent: 'center',
+    },
+    text: {
+      color: 'black',
+      fontSize: 20,
+      textAlign: 'center',
+    },
+  });
+
+export default animationsStyles;
