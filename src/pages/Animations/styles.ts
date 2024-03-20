@@ -1,8 +1,12 @@
 import {Animated, StyleSheet} from 'react-native';
 
 const animationsStyles = (
-  dynamicWidth: Animated.Value,
-  dynamicHeight: Animated.Value,
+  whiteBoxWidth: Animated.Value,
+  whiteBoxHeight: Animated.Value,
+  whiteBoxOpacity: Animated.Value,
+  redBoxWidth: Animated.Value,
+  redBoxHeight: Animated.Value,
+  redBoxOpacity: Animated.Value,
 ) =>
   StyleSheet.create({
     container: {
@@ -10,12 +14,21 @@ const animationsStyles = (
       backgroundColor: 'black',
       alignItems: 'center',
       justifyContent: 'center',
+      gap: 20,
     },
-    animatedView: {
-      width: dynamicWidth,
-      height: dynamicHeight,
+    whiteBox: {
+      width: whiteBoxWidth,
+      height: whiteBoxHeight,
       backgroundColor: 'white',
       justifyContent: 'center',
+      opacity: whiteBoxOpacity,
+    },
+    redBox: {
+      width: redBoxWidth,
+      height: redBoxHeight,
+      backgroundColor: 'indianred',
+      justifyContent: 'center',
+      opacity: redBoxOpacity,
     },
     text: {
       color: 'black',

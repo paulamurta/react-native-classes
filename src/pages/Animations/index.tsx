@@ -3,24 +3,76 @@ import {View, Text, Animated} from 'react-native';
 import animationsStyles from './styles';
 
 export default function Animations() {
-  const [dynamicWidth] = useState(new Animated.Value(150));
-  const [dynamicHeight] = useState(new Animated.Value(50));
+  const [whiteBoxWidth] = useState(new Animated.Value(100));
+  const [whiteBoxHeight] = useState(new Animated.Value(50));
+  const [whiteBoxOpacity] = useState(new Animated.Value(0));
+  const [redBoxWidth] = useState(new Animated.Value(200));
+  const [redBoxHeight] = useState(new Animated.Value(35));
+  const styles = animationsStyles(
+    whiteBoxWidth,
+    whiteBoxHeight,
+    whiteBoxOpacity,
+    redBoxWidth,
+    redBoxHeight,
+  );
 
   useEffect(() => {
-    Animated.timing(dynamicWidth, {
-      toValue: 300,
-      duration: 2000,
-      useNativeDriver: false,
-    }).start();
-  }, [dynamicWidth]);
+    //abre sequencia
+    Animated.sequence([
+      //comeca com um timing de opacidade 1
+      Animated.timing(whiteBoxOpacity, {
+        toValue: 1,
+        duration: 1000,
+        useNativeDriver: false,
+      }),
+      //add na sequencia um parallel com 2 timings
+      Animated.parallel([
+        Animated.timing(whiteBoxWidth, {
+          toValue: 300,
+          duration: 1000,
+          useNativeDriver: false,
+        }),
+        Animated.timing(whiteBoxHeight, {
+          toValue: 150,
+          duration: 1000,
+          useNativeDriver: false,
+        }),
+      ]),
+      //finaliza com um timing de opacidade 0
+      Animated.timing(whiteBoxOpacity, {
+        toValue: 0,
+        duration: 1000,
+        useNativeDriver: false,
+      }),
+      //fecha sequencia
+    ]).start();
+  }, []);
+
+  useEffect(() => {
+    //começa um loop
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(redBoxWidth, {
+          toValue: 300,
+          duration: 1000,
+          useNativeDriver: false,
+        }),
+        Animated.timing(redBoxWidth, {
+          toValue: 200,
+          duration: 1000,
+          useNativeDriver: false,
+        }),
+      ]),
+    ).start();
+  }, []);
 
   return (
-    <View style={animationsStyles(dynamicWidth, dynamicHeight).container}>
-      <Animated.View
-        style={animationsStyles(dynamicWidth, dynamicHeight).animatedView}>
-        <Text style={animationsStyles(dynamicWidth, dynamicHeight).text}>
-          Carregando...
-        </Text>
+    <View style={styles.container}>
+      <Animated.View style={styles.whiteBox}>
+        <Text style={styles.text}>White Box Loading...</Text>
+      </Animated.View>
+      <Animated.View style={styles.redBox}>
+        <Text style={styles.text}>Red Box Loading...</Text>
       </Animated.View>
     </View>
   );
