@@ -1,12 +1,10 @@
-import {Animated, StyleSheet} from 'react-native';
+import {Animated, DimensionValue, StyleSheet} from 'react-native';
 
 const animationsStyles = (
   whiteBoxWidth: Animated.Value,
   whiteBoxHeight: Animated.Value,
   whiteBoxOpacity: Animated.Value,
-  redBoxWidth: Animated.Value,
-  redBoxHeight: Animated.Value,
-  redBoxOpacity: Animated.Value,
+  animatedPercentage: DimensionValue,
 ) =>
   StyleSheet.create({
     container: {
@@ -24,11 +22,10 @@ const animationsStyles = (
       opacity: whiteBoxOpacity,
     },
     redBox: {
-      width: redBoxWidth,
-      height: redBoxHeight,
+      width: animatedPercentage,
+      height: 35,
       backgroundColor: 'indianred',
       justifyContent: 'center',
-      opacity: redBoxOpacity,
     },
     text: {
       color: 'black',

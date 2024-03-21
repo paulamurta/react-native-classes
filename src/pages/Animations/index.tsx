@@ -6,14 +6,17 @@ export default function Animations() {
   const [whiteBoxWidth] = useState(new Animated.Value(100));
   const [whiteBoxHeight] = useState(new Animated.Value(50));
   const [whiteBoxOpacity] = useState(new Animated.Value(0));
-  const [redBoxWidth] = useState(new Animated.Value(200));
-  const [redBoxHeight] = useState(new Animated.Value(35));
+  const [redBoxWidth] = useState(new Animated.Value(50));
+  const animatedPercentage = redBoxWidth.interpolate({
+    inputRange: [0, 100],
+    outputRange: ['0%', '100%'],
+  });
+
   const styles = animationsStyles(
     whiteBoxWidth,
     whiteBoxHeight,
     whiteBoxOpacity,
-    redBoxWidth,
-    redBoxHeight,
+    animatedPercentage,
   );
 
   useEffect(() => {
@@ -53,12 +56,12 @@ export default function Animations() {
     Animated.loop(
       Animated.sequence([
         Animated.timing(redBoxWidth, {
-          toValue: 300,
+          toValue: 80,
           duration: 1000,
           useNativeDriver: false,
         }),
         Animated.timing(redBoxWidth, {
-          toValue: 200,
+          toValue: 50,
           duration: 1000,
           useNativeDriver: false,
         }),

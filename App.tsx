@@ -14,9 +14,9 @@ export default function App() {
       {/* <Feed /> */}
       {/* <Instagram /> */}
       {/* <Pizza /> */}
-      {/* <AsyncStoragePage /> */}
+      <AsyncStoragePage />
       {/* <Movies /> */}
-      <Animations />
+      {/* <Animations /> */}
     </SafeAreaView>
   );
 }

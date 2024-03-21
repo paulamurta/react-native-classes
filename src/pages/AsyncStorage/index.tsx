@@ -1,11 +1,21 @@
-import {useEffect, useState} from 'react';
-import {Alert, Keyboard, Pressable, Text, TextInput, View} from 'react-native';
+import {useEffect, useState, useMemo, useRef} from 'react';
+import {
+  Alert,
+  Keyboard,
+  Pressable,
+  Text,
+  TextInput,
+  View,
+  Button,
+} from 'react-native';
 import {asyncStorageStyles} from './styles';
 import AsyncStorage from '@react-native-community/async-storage';
 
 export default function AsyncStoragePage() {
   const [input, setInput] = useState<string>('');
   const [name, setName] = useState<string>('');
+  const length = useMemo(() => name.length, [name]);
+  const nameInput = useRef<TextInput>(null);
 
   //! monta componente >> pega nome do storage
   useEffect(() => {
@@ -13,7 +23,6 @@ export default function AsyncStoragePage() {
       const storedName = await AsyncStorage.getItem('nome');
       if (storedName) {
         setName(storedName);
-        console.log(storedName);
       }
     }
     fetchName();
@@ -48,12 +57,18 @@ export default function AsyncStoragePage() {
           onChangeText={handleInput}
           placeholder="Digite seu nome"
           underlineColorAndroid="transparent"
+          ref={nameInput}
         />
         <Pressable onPress={saveName}>
           <Text style={asyncStorageStyles.button}>+</Text>
         </Pressable>
       </View>
       <Text style={asyncStorageStyles.nameText}>Olá, {name}!</Text>
+      <Text style={asyncStorageStyles.nameText}>{length} letras</Text>
+      <Button
+        onPress={() => nameInput.current?.focus()}
+        title="Clica aqui para editar input"
+      />
     </View>
   );
 }
