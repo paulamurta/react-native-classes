@@ -5,8 +5,8 @@ import Navigation from './src/router';
 
 export default function App() {
   return (
-    // <SafeAreaView>
-    <Navigation />
-    // </SafeAreaView>
+    <SafeAreaView style={globalStyles.background}>
+      <Navigation />
+    </SafeAreaView>
   );
 }
