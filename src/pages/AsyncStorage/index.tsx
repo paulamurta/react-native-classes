@@ -10,6 +10,8 @@ import {
 } from 'react-native';
 import {asyncStorageStyles} from './styles';
 import AsyncStorage from '@react-native-community/async-storage';
+import Feather from 'react-native-vector-icons/Feather';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 export default function AsyncStoragePage() {
   const [input, setInput] = useState<string>('');
@@ -69,6 +71,9 @@ export default function AsyncStoragePage() {
         onPress={() => nameInput.current?.focus()}
         title="Clica aqui para editar input"
       />
+      <FontAwesome name="home" size={25} color="#11118c" />
+      <Feather name="user" size={25} color="#54a300" />
+      <Feather name="gift" size={25} color="#8b38ff" />
     </View>
   );
 }
