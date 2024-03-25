@@ -1,12 +1,12 @@
 import {useState} from 'react';
-import {View, Pressable, FlatList, Image, Text} from 'react-native';
+import {View, Pressable, FlatList, Image} from 'react-native';
 import {instagramStyles} from './styles';
-import {IPostCard, PostCardProps} from './../../components/PostCard/types';
+import {IPostCard} from './../../components/PostCard/types';
 import PostCard from '../../components/PostCard';
+import logo from '../../assets/images/logo.png';
+import send from '../../assets/images/send.png';
 
 export default function Instagram() {
-  const logo = require('./../../assets/images/logo.png');
-  const send = require('./../../assets/images/send.png');
   const [feed, setFeed] = useState<IPostCard[]>([
     {
       id: 1,
