@@ -7,6 +7,7 @@ import HomeStack from './homeStack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import AsyncTab from './asyncDrawer';
+import AsyncDrawer from './asyncDrawer';
 
 const Tab = createBottomTabNavigator();
 
@@ -39,7 +40,7 @@ export default function Routes() {
       />
       <Tab.Screen
         name="AsyncStorage"
-        component={AsyncTab}
+        component={AsyncDrawer}
         options={{
           tabBarIcon: ({color, size}) => {
             return <Feather name="clock" color={color} size={size} />;
